@@ -1,1 +1,4 @@
+### JNI--MediaScanner概述
+image1
 
++ Java世界对应的是MediaScanner，而MediaScanner类有一些函数需要由Native层来实现；Jni对应的是libmedia_jni.so，media_jni是Jni库的名字，其中下划线前的media是Native层库的名字，下划线后的jni表示它是一个Jni库；Jni库的名字可以随便取，不过Android平台基本上都采用lib模块名_jni.so的命名方式；Native层对应的是libmedia.so这个库完全是实际的功能；MediaScanner将通过Jni库libmedia_jni.so和Native层的libmedia.so交互；Jni层必须实现为动态库的形式，这样Java虚拟机才能加载它并调用它的函数；MediaScanner的功能是扫描媒体文件，得到诸如歌曲时长、歌曲作者等媒体信息，并将他们存放入媒体数据库中，供其他应用程序使用；

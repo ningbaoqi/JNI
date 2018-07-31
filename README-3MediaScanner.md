@@ -34,3 +34,13 @@ extern "C"{
 |需要编译所有声明了native函数的java类，每个所生成的.class文件都得用javah生成一个头文件|
 |javah生成的Jni函数名特别长，书写起来很不方便|
 |初次调用native函数时要根据函数名搜索对应的Jni层函数来建立关联关系，这样会影响运行效率|
+
+##### 二、动态注册
++ 在Jni技术中，用来记录这种一一对应关系的是一个叫`JNINativeMethod`的结构；
+```
+typedef struct{
+       const char* name;//java中native函数的名字，不用携带包的路径，如native_init
+       const char* signature;//java函数的签名信息，用字符串表示，是参数类型和返回值类型的组合
+       void* fnPtr;//Jni层对应函数的函数指针，注意它是一个void*类型
+}JNINativeMethod;
+```

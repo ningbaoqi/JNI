@@ -44,3 +44,16 @@ typedef struct{
        void* fnPtr;//Jni层对应函数的函数指针，注意它是一个void*类型
 }JNINativeMethod;
 ```
+
+image1
+
+image2
+
+image3
+
+image4
+
++ 其中jniRegisterNativeMethods是Android平台中为了方便Jni使用而提供的一个帮助函数；
+
+image5
+
